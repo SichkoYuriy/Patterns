@@ -1,22 +1,20 @@
 interface Iterator<T> {
-    current(): T;
-
-    next(): T;
-
-    key(): number;
-
-    valid(): boolean;
-
-    rewind(): void;
+    current(): T;// Возврат текущего элемента
+    next(): T;// Возврат текущего элемента и переход к следующему элементу.
+    key(): number;// Возврат ключа текущего элемента.
+    valid(): boolean;// Проверяет корректность текущей позиции.
+    rewind(): void;// Перемотка Итератора к первому элементу.
 }
+
+//интерфейс коллекции
 interface Agregator {
     getIterator(): Iterator<string>;
 }
-
+// конкретный итератор, реализует алгоритм обхода конкретной коллекции
 class NumbersIterator implements Iterator<string> {
     private collection: NumbersCollection;
     private position: number = 0;
-    private reverse: boolean = false;
+    private reverse: boolean = false; //направление обхода
     constructor(collection: NumbersCollection, reverse: boolean = false) {
         this.collection = collection;
         this.reverse = reverse;
@@ -49,6 +47,8 @@ class NumbersIterator implements Iterator<string> {
         return this.position < this.collection.getCount();
     }
 }
+
+// конкретная коллекция
 class NumbersCollection implements Agregator {
     private items: string[] = [];
     public getItems(): string[] {

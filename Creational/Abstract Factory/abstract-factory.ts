@@ -1,11 +1,10 @@
-//Абстрактная фабрика
+// Абстрактная фабрика. содержит методы создания всех продуктов семейства
 interface DesignFactory {
     createButton(): Button;
     createInput(): Input;
 }
 
-
-//Конкретная фабрика1
+// Конкретная фабрика
 class WinFactory implements DesignFactory {
     public createButton(): Button {
     return new WinButton();
@@ -14,8 +13,7 @@ class WinFactory implements DesignFactory {
     return new WinInput();
     }
 }
-
-//Конкретная фабрика2
+// Конкретная фабрика
 class MacFactory implements DesignFactory {
     public createButton(): Button {
     return new MacButton();
@@ -25,38 +23,38 @@ class MacFactory implements DesignFactory {
     }
 }
 
-//Абстрактный продукт1
+// Абстрактный продукт
 interface Button {
     buttonDesign(): string;
 }
 
-//Конкретный продукт1-1
+// Конкретный продукт
 class WinButton implements Button {
     public buttonDesign(): string {
         return 'Button has a white background and black text';
     }
 }
 
-//Конкретный продукт1-2
+// Конкретный продукт
 class MacButton implements Button {
     public buttonDesign(): string {
         return 'Button has a black background and white text';
     }
 }
 
-//Абстрактный продукт2
+// Абстрактный продукт
 interface Input {
     inputDesign(): string;
 }
 
-//Конкретный продукт2-1
+// Конкретный продукт
 class WinInput implements Input {
     public inputDesign(): string {
         return 'Input has a white background and black text';
     }
 }
 
-//Конкретный продукт2-2
+// Конкретный продукт
 class MacInput implements Input {
     public inputDesign(): string {
         return 'Input has a black background and white text';

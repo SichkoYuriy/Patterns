@@ -1,3 +1,5 @@
+// Контекст...хранит ссылку на экземпляр подкласса Состояния, который отображает текущее
+// состояние Контекста
 class Car {
     private state: State;
     constructor(state: State) {
@@ -16,10 +18,12 @@ class Car {
         this.state.broken();
     }
 }
+
+// базовый класс состояния...бъявляет методы, которые должны реализовать все конкретные состояния
 abstract class State {
     protected car: Car;
 
-    public setCar(car: Car) {
+    public setCar(car: Car) { 
         this.car = car;
     }
 
@@ -28,6 +32,7 @@ abstract class State {
     public abstract broken(): void;
 }
 
+// конкретное состояние
 class Normal extends State {
     public  normal(): void{
         console.log('The car is ready to use. Enjoy the ride.')
@@ -36,6 +41,8 @@ class Normal extends State {
     }
     public broken(): void{}
 }
+
+// конкретное состояние
 class Broken extends State {
     public  normal(): void{}
     public broken(): void{

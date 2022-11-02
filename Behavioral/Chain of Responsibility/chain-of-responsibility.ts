@@ -1,8 +1,10 @@
+// интерфейс обработчика. объявляет метод построения цепочки обработчиков и метод для выполнения запроса
 interface Handler {
     setNext(handler: Handler): Handler;
     handle(request: string): string;
 }
 
+// базовый класс обработчика с реализацией
 abstract class AbstractHandler implements Handler {
     private nextHandler: Handler;
     public setNext(handler: Handler): Handler {
@@ -17,6 +19,7 @@ abstract class AbstractHandler implements Handler {
     }
 }
 
+// Конкретный обработчик
 class AudiHandler extends AbstractHandler {
     public handle(request: string): string {
         if (request === 'Audi') {
@@ -25,6 +28,8 @@ class AudiHandler extends AbstractHandler {
         return super.handle(request);
     }
 }
+
+// Конкретный обработчик
 class BMWHandler extends AbstractHandler {
     public handle(request: string): string {
         if (request === 'BMW') {
@@ -33,6 +38,8 @@ class BMWHandler extends AbstractHandler {
         return super.handle(request);
     }
 }
+
+// Конкретный обработчик
 class MercedesHandler extends AbstractHandler {
     public handle(request: string): string {
         if (request === 'Mercedes') {

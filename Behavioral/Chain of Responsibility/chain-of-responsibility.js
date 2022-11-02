@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+// базовый класс обработчика с реализацией
 var AbstractHandler = /** @class */ (function () {
     function AbstractHandler() {
     }
@@ -28,6 +29,7 @@ var AbstractHandler = /** @class */ (function () {
     };
     return AbstractHandler;
 }());
+// Конкретный обработчик
 var AudiHandler = /** @class */ (function (_super) {
     __extends(AudiHandler, _super);
     function AudiHandler() {
@@ -41,6 +43,7 @@ var AudiHandler = /** @class */ (function (_super) {
     };
     return AudiHandler;
 }(AbstractHandler));
+// Конкретный обработчик
 var BMWHandler = /** @class */ (function (_super) {
     __extends(BMWHandler, _super);
     function BMWHandler() {
@@ -54,6 +57,7 @@ var BMWHandler = /** @class */ (function (_super) {
     };
     return BMWHandler;
 }(AbstractHandler));
+// Конкретный обработчик
 var MercedesHandler = /** @class */ (function (_super) {
     __extends(MercedesHandler, _super);
     function MercedesHandler() {

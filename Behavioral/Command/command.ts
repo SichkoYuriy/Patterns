@@ -1,3 +1,4 @@
+// база данных с определённым набором операций
 class Database {
     insert(): void {
         console.log('Inserting record...')
@@ -13,9 +14,11 @@ class Database {
     }
 }
 
+// интерфейс для всех команд
 interface Command {
     execute(): void;
 }
+// конкретная команда
 class InsertCommand implements Command {
     public database: Database;
     constructor(database: Database) {
@@ -25,6 +28,7 @@ class InsertCommand implements Command {
         this.database.insert();
     }
 }
+// конкретная команда
 class UpdateCommand implements Command {
     public database: Database;
     constructor(database: Database) {
@@ -34,6 +38,7 @@ class UpdateCommand implements Command {
         this.database.update();
     }
 }
+// конкретная команда
 class SelectCommand implements Command {
     public database: Database;
     constructor(database: Database) {
@@ -43,6 +48,7 @@ class SelectCommand implements Command {
         this.database.select();
     }
 }
+// конкретная команда
 class DeleteCommand implements Command {
     public database: Database;
     constructor(database: Database) {
@@ -53,6 +59,7 @@ class DeleteCommand implements Command {
     }
 }
 
+// класс разработчк который работает с базой данных
 class Developer {
     public insert: Command;
     public update: Command;
@@ -80,6 +87,7 @@ class Developer {
 }
 
 const database: Database = new Database();
+// передаём в разработчик наши команды 
 const developer: Developer = new Developer(
     new InsertCommand(database),
     new UpdateCommand(database),
